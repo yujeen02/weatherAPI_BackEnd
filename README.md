@@ -15,7 +15,7 @@ NestJS 기반의 백엔드 API로, 위도(latitude)와 경도(longitude)를 기�
 
 > 아래는 `Location`과 `Weather` 테이블 간의 관계를 나타낸 ERD입니다.
 
-![ERD](./docs/er-diagram.png)
+![ERD](https://github.com/user-attachments/assets/60b8c2c9-644e-43d6-bb4f-6c9669ff9f5c)
 
 ---
 
