@@ -85,7 +85,7 @@ OPEN_WEATHER_KEY=your_openweathermap_api_key
 ### 🔗 프론트엔드 연동
 
 이 백엔드 프로젝트는 아래 프론트엔드 프로젝트와 연동됩니다:  
-👉 **프론트엔드 GitHub 레포지토리** (링크는 직접 추가해주세요)
+👉 **프론트엔드 레포지토리**: [weather-client](https://github.com/yujeen02/weatherAPI_FrontEnd)
 
 사용자는 지도에서 위치를 검색하거나 클릭하여 날씨 정보를 확인할 수 있으며, 백엔드는 해당 위치의 실시간 날씨 정보를 응답합니다.
 
