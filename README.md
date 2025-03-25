@@ -61,7 +61,6 @@ OPEN_WEATHER_KEY=your_openweathermap_api_key
 
 ###  백엔드  
 <img src="https://img.shields.io/badge/NestJS-E0234E.svg?&style=for-the-badge&logo=nestjs&logoColor=white" />  
-<img src="https://img.shields.io/badge/node.js-%234285F4.svg?&style=for-the-badge&logo=node.js&logoColor=white" />  
 <img src="https://img.shields.io/badge/typescript-3178C6.svg?style=for-the-badge&logo=typescript&logoColor=white" />
 
 ### 🗄데이터베이스  
@@ -74,7 +73,6 @@ OPEN_WEATHER_KEY=your_openweathermap_api_key
 <img src="https://img.shields.io/badge/nest%2Faxios-%23e0234e.svg?style=for-the-badge&logo=nestjs&logoColor=white" />
 
 ### 테스트 및 버전관리  
-<img src="https://img.shields.io/badge/jest-C21325.svg?style=for-the-badge&logo=jest&logoColor=white" />  
 <img src="https://img.shields.io/badge/git-%23F05032.svg?&style=for-the-badge&logo=git&logoColor=white" />  
 <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
 
