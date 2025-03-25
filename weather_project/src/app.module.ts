@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { HttpModule } from '@nestjs/axios'; // ✅ 추가
+import { HttpModule } from '@nestjs/axios';
 import { WeatherModule } from './weather/weather.module';
 import { LocationModule } from './location/location.module';
 import { Weather } from './weather/weather.entity';

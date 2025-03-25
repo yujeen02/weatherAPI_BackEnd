@@ -19,10 +19,10 @@ export class Location {
   longitude: number;
 
   @Column({ type: 'varchar', length: 100, nullable: true })
-  city: string;
+  city: string | null;
 
   @Column({ type: 'varchar', length: 100, nullable: true })
-  district: string;
+  district: string | null;
 
   @OneToMany(() => Weather, (weather) => weather.location)
   weather: Weather[];

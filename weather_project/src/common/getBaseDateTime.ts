@@ -1,7 +1,6 @@
 export function getBaseDateTime(): { base_date: string; base_time: string } {
   const now = new Date();
 
-  // 40분 전에 가까운 정시 → 대신 강제로 한 시간 전 정시 사용
   const adjusted = new Date(now);
   adjusted.setHours(adjusted.getHours() - 1); // 한 시간 전
 
@@ -12,6 +11,6 @@ export function getBaseDateTime(): { base_date: string; base_time: string } {
 
   return {
     base_date: `${yyyy}${mm}${dd}`,
-    base_time: `${hh}00`, // ex: 1400
+    base_time: `${hh}00`,
   };
 }

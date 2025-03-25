@@ -11,6 +11,10 @@ import { ConfigService } from '@nestjs/config';
 export class WeatherService {
   private readonly OPEN_WEATHER_KEY: string;
   private readonly logger = new Logger(WeatherService.name);
+  // logger: nestjs에서 로그를 남기기 위한 logger 객체
+
+  // 의존성 주입
+  // typeORM 사용해 db 테이블에 접근
 
   constructor(
     private readonly httpService: HttpService,
@@ -23,8 +27,10 @@ export class WeatherService {
     this.OPEN_WEATHER_KEY = this.configService.get<string>('OPEN_WEATHER_KEY')!;
   }
 
+  // 외부 API 호출해 실시간 날씨 데이터 받아오는 함수
   async fetchRealtimeWeather(lat: number, lon: number): Promise<any> {
     const url = 'https://api.openweathermap.org/data/2.5/weather';
+
     const params = {
       lat,
       lon,
@@ -50,11 +56,12 @@ export class WeatherService {
 
       return weather;
     } catch (error) {
-      this.logger.error(`🚨 API 요청 실패: ${error.message}`);
+      this.logger.error(`API 요청 실패: ${error.message}`);
       return null;
     }
   }
 
+  // 데이터 가져오기 없으면 db에 저장
   async getOrCreateLocation(lat: number, lon: number): Promise<Location> {
     let location = await this.locationRepository.findOne({
       where: { latitude: lat, longitude: lon },
@@ -71,6 +78,7 @@ export class WeatherService {
     return location;
   }
 
+  // 실시간 날씨 정보를 API로부터 받고, db에 없으면 생성
   async saveWeatherData(lat: number, lon: number) {
     const weatherData = await this.fetchRealtimeWeather(lat, lon);
     if (!weatherData) return null;
@@ -92,15 +100,13 @@ export class WeatherService {
   async getWeather(lat: number, lon: number) {
     const recentWeather = await this.weatherRepository.findOne({
       where: { location: { latitude: lat, longitude: lon } },
+      relations: ['location'],
       order: { recorded_at: 'DESC' },
     });
-
     if (recentWeather) {
-      this.logger.log('✅ 캐시된 데이터 반환');
       return recentWeather;
     }
 
-    this.logger.log('🌍 API 호출 후 데이터 저장');
     return await this.saveWeatherData(lat, lon);
   }
 }

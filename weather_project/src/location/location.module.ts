@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Location } from './location.entity';
+import { LocationService } from './location.service';
+import { LocationController } from './location.controller';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Location])], // ✅ TypeORM 등록
-  exports: [TypeOrmModule], // ✅ WeatherModule에서 사용 가능하도록 export
+  imports: [TypeOrmModule.forFeature([Location])],
+  providers: [LocationService],
+  controllers: [LocationController],
+  exports: [TypeOrmModule, LocationService],
 })
 export class LocationModule {}
